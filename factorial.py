@@ -1,6 +1,43 @@
-"""
-# O Fatorial de um número é uma série de multiplicações de um número pelos anteriores, como 3! (exclamação símbolo de fatorial) . Exemplo, o fatorial de 3! é 6, ou 3! = 3 * 2 * 1  = 6.
-*
-Problema: Construa um algoritmo que calcule o somatório dos termos da sequencia numérica FAT a seguir. Encontre o termo faltante e calcule e mostre a sequência calculada e o somatório final na tela:  
-"""
+def factorial(number:int):
+    value:int = 1
+    for i in range(number):
+       value = value * (i + 1)
 
+    return value
+
+
+def calculate_sequence(numerator:float, increment:float, limit:int):
+    sequence = []
+
+    for i in range(2, limit + 1):
+        term = numerator / factorial(i)
+        sequence.append(term)
+        numerator += increment
+
+    return sequence
+
+
+def calculate_final_sum(numerator:float, increment:float, limit:int):
+    sum = 0
+
+    for i in range(2, limit + 1):
+        term = numerator / factorial(i)
+        sum += term
+        numerator += increment
+
+    return sum
+
+
+def main():
+    limit:int = 10
+    numerator:float = 224
+    increment:float = 4
+    sum:float = calculate_final_sum(numerator=numerator, increment=increment, limit=limit)
+    sequence:list = calculate_sequence(numerator=numerator, increment=increment, limit=limit)
+
+    print("Sequência Calculada:", sequence)
+    print("Somatório Final:", sum)
+
+
+if __name__== "__main__":
+    main()

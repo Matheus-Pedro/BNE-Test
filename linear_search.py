@@ -21,14 +21,19 @@ def handle_search_result(in_list: bool, item: int, number: int):
 
 
 def prompt_for_number():
-    text = "\tCONSULTA UTILIZANDO PESQUISA LINEAR\n\nInforme um número para consultá-lo em nosso vetor (array, lista):"
-    number = int(input(text))
-    return number
+    while True:
+        try:
+            text = "CONSULTA UTILIZANDO PESQUISA LINEAR\nInforme um número para consultá-lo em nosso vetor (array, lista):"
+            number:int = int(input(text))
+
+            return number
+        except:
+            print("\nERRO NA ENTRADA.\nDigite apenas números inteiros.\n")
 
 
 def main():
-    the_list = [9, 7, 2, 16, 14, 30]
-    number = prompt_for_number()
+    the_list:list = [9, 7, 2, 16, 14, 30]
+    number:int = prompt_for_number()
     pesquisar(vet=the_list, n=number)
 
 
